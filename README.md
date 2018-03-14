@@ -26,6 +26,8 @@ Execute the following codes successively:
 
 #### Python Predict Client
 
+You will need python modules: pycurl，pandas
+
 Directly execute the following code：
 
 ```

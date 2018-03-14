@@ -24,6 +24,8 @@ git clone https://github.com/huawei-clouds/dls-mxserving-client.git
 
 #### Python客户端
 
+依赖pycurl，pandas等python模块。
+
 直接运行如下命令即可实现一次预测：
 
 ```
