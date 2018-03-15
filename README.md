@@ -1,4 +1,4 @@
-#Usage of Predict Client 
+# Usage of Predict Client 
 
 After the inference job (service) is created, you can download, modify and run predict client to send request to inference service. The detailed instructions are:
 
@@ -10,19 +10,13 @@ Run the following code to down the predict client:
 git clone https://github.com/huawei-clouds/dls-mxserving-client.git
 ```
 
-
-
 ### Example
 
 Take **Image Classification** for example（the input data is one image under the folder of dls-mxserving-client/data）, the usages of Java and Python predict client are：
 
 #### Java Predict Client
 
-Execute the following codes successively:
-
-```
-
-```
+Coming soon.
 
 #### Python Predict Client
 

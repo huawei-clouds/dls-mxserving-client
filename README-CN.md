@@ -16,11 +16,7 @@ git clone https://github.com/huawei-clouds/dls-mxserving-client.git
 
 #### Java客户端
 
-依次执行如下命令即可实现一次预测：
-
-```
-
-```
+即将发布。
 
 #### Python客户端
 
