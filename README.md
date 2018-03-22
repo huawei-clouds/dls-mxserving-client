@@ -16,7 +16,21 @@ Take **Image Classification** for example（the input data is one image under th
 
 #### Java Predict Client
 
-Coming soon.
+Install JDK 1.8
+
+You need java libs: argparse4j, httpclient, httpmime and jackson-databind.
+
+Directly execute the following command：
+
+```
+cd java
+mvn clean install
+java -jar target/predict-1.0-jar-with-dependencies.jar \
+--server_url="http://xx.xx.xx.xx:xxxx/server_name/predict_func_name" \
+--file_path="xx/dls-mxserving-client/data/kitten.jpg" \
+--label_file_path="xx/dls-mxserving-client/data/synset.txt" \
+--input_node_name="data"
+```
 
 #### Python Predict Client
 

@@ -16,7 +16,19 @@ git clone https://github.com/huawei-clouds/dls-mxserving-client.git
 
 #### Java客户端
 
-即将发布。
+JDK1.8环境，依赖argparse4j、httpclient、httpmime和jackson-databind。
+
+运行如下命令即可实现一次预测：
+
+```
+cd java
+mvn clean install
+java -jar target/predict-1.0-jar-with-dependencies.jar \
+--server_url="http://xx.xx.xx.xx:xxxx/server_name/predict_func_name" \
+--file_path="xx/dls-mxserving-client/data/kitten.jpg" \
+--label_file_path="xx/dls-mxserving-client/data/synset.txt" \
+--input_node_name="data"
+```
 
 #### Python客户端
 
