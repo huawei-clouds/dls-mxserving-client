@@ -32,6 +32,8 @@ def predict(args):
         os.mkdir(args.res_save_path)
     file_list = os.listdir(args.file_root_path)
     for item in file_list:
+        if item.split('.')[1] != "jpg" or item.split('.')[1] != "jpeg":
+            continue
         predict_curl = pycurl.Curl()
         storage = StringIO()
         values = [(args.input_node_name, (pycurl.FORM_FILE, os.path.join(args.file_root_path, item)))]
@@ -56,7 +58,7 @@ if __name__ == '__main__':
                                      formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('--server_url', type=str, default="http://127.0.0.1:8080/segnet_vgg_pre/predict",
                         help='The server url.')
-    parser.add_argument('--file_root_path', type=str, default="../../0001TP_007440.jpg",
+    parser.add_argument('--file_root_path', type=str, default="../data/segmentation/",
                         help='The pic file path used to predict.')
     parser.add_argument('--res_save_path', type=str, default="./res_pic/",
                         help='The path used to save result pic.')

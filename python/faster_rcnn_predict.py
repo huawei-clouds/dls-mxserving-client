@@ -30,6 +30,8 @@ def predict(args):
         os.mkdir(args.res_save_path)
     file_list = os.listdir(args.file_root_path)
     for item in file_list:
+        if item.split('.')[1] != "jpg" or item.split('.')[1] != "jpeg":
+            continue
         file_name = os.path.join(args.file_root_path, item)
         predict_curl = pycurl.Curl()
         storage = StringIO()
@@ -57,13 +59,13 @@ if __name__ == '__main__':
                                      formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('--server_url', type=str, default="http://127.0.0.1:8080/rcnn_eval/predict",
                         help='The server url.')
-    parser.add_argument('--file_root_path', type=str, default="../data/rcnn_pic/",
+    parser.add_argument('--file_root_path', type=str, default="../data/object_detection/",
                         help='The pic file path used to predict.')
     parser.add_argument('--res_save_path', type=str, default="./res_pic/",
                         help='The path used to save result pic.')
     parser.add_argument('--input_node_name', type=str, default="data",
                         help='The input node name of the model runing on predict server.')
-    parser.add_argument('--label_file_path', type=str, default="rcnn_classes.txt",
+    parser.add_argument('--label_file_path', type=str, default="../data/object_detection/rcnn_classes.txt",
                         help='The label file for predict result.')
     args, unkown = parser.parse_known_args()
 
