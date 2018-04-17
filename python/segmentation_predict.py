@@ -34,24 +34,21 @@ def predict(args):
     for item in file_list:
         predict_curl = pycurl.Curl()
         storage = StringIO()
-        values=[(args.input_node_name, (pycurl.FORM_FILE, os.path.join(args.file_root_path, item)))]
+        values = [(args.input_node_name, (pycurl.FORM_FILE, os.path.join(args.file_root_path, item)))]
         predict_curl.setopt(predict_curl.URL, args.server_url)
         predict_curl.setopt(predict_curl.WRITEFUNCTION, storage.write)
         predict_curl.setopt(predict_curl.HTTPPOST, values)
         predict_curl.perform()
         predict_curl.close()
         content = storage.getvalue()
-        import pdb
-        pdb.set_trace()
         content = content.replace('\n', '')
         res = json.loads(content)
         d64 = base64.decodestring(res["prediction"])
         rec = np.frombuffer(d64, dtype=np.float32)
-        w, h = args.output_data_shape.split(",")
         out_img = Image.fromarray(rec.reshape(360, 480).astype(np.uint8))
         pallete = getpallete(256)
         out_img.putpalette(pallete)
-        out_img.save(args.res_save_path + item.split('.')[0] + 'res.png')
+        out_img.save(args.res_save_path + item.split('.')[0] + '_res.png')
 
 if __name__ == '__main__':
     # parse args
