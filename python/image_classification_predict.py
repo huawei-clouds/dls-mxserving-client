@@ -16,7 +16,7 @@ def predict(args):
     content = storage.getvalue()
     content = content.replace('\n', '')
     res = json.loads(content)
-
+    labels = None
     if os.path.isfile(args.label_file_path):
         labels = [line.strip() for line in open(args.label_file_path).readlines()]
     if labels is not None:
