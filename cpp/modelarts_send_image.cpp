@@ -53,6 +53,7 @@ string send_image_post(string &imageStr, string &tokenStr, string &postUrlStr){
         return "error";
     } else
         return postResponseStr;
+    curl_global_cleanup();
     return "error";
 }
 
